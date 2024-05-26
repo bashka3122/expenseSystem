@@ -63,7 +63,26 @@ if (!$_SESSION['userID']) {
                                                 <td><?php echo $row['email']; ?></td>
                                                 <td><?php echo $row['role']; ?></td>
 
-                                                <td>actions</td>
+                                                <td>
+                                                    <?php
+                                                    $role = $_SESSION['userRole'];
+                                                    if ($role == 'user' || $role == 'User') { ?>
+
+                                                        <span>you don't have premission</span>
+                                                    <?php  } else {
+
+                                                    ?>
+                                                        <a href="editusers.php?uid=<?php echo $row['id']; ?>">
+
+                                                            <button class="btn btn-info">Edit</button>
+
+                                                        </a>
+                                                        <a href="backend/users.php?uid=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?');">
+                                                            <button class="btn btn-danger">Delete</button>
+                                                        </a>
+                                                    <?php
+                                                    } ?>
+                                                </td>
 
                                             </tr>
                                         <?php     }
