@@ -25,7 +25,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index.html">
+                <a href="index.php">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
@@ -60,8 +60,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> New account</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Manage Accounts</a></li>
+                    <li><a href="newAccount.php"><i class="fa fa-angle-double-right"></i> New account</a></li>
+                    <li><a href="manageAccounts.php"><i class="fa fa-angle-double-right"></i> Manage Accounts</a></li>
                 </ul>
             </li>
             <li class="treeview">
