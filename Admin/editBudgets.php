@@ -26,12 +26,12 @@ if (!$_SESSION['userID']) {
                         <h3 class="box-title">Account Update Form</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="backend/accounts.php" method="post">
+                    <form role="form" action="backend/budgets.php" method="post">
                         <div class="box-body">
                             <?php
                             include 'includes/connect.php';
-                            $id = $_GET['Aid'];
-                            $sql = "SELECT * FROM accounts WHERE id='$id' ";
+                            $id = $_GET['Bid'];
+                            $sql = "SELECT * FROM budgets WHERE id='$id' ";
                             $q = mysqli_query($conn, $sql);
                             if ($q->num_rows > 0) {
                                 $row = mysqli_fetch_assoc($q);
@@ -39,8 +39,8 @@ if (!$_SESSION['userID']) {
                             ?>
                             <div class="form-group">
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $row['id']; ?>" readonly>
-                                <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter fullname" value="<?php echo $row['name']; ?>">
+                                <label for="exampleInputEmail1">Amount</label>
+                                <input type="text" name="amount" class="form-control" value="<?php echo $row['amount']; ?>">
                             </div>
 
                             <div class="form-group">
@@ -48,7 +48,10 @@ if (!$_SESSION['userID']) {
                                 <input type="code" name="code" class="form-control" value="<?php echo $row['code']; ?>">
                             </div>
 
-
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Date</label>
+                                <input type="code" name="date" class="form-control" value="<?php echo $row['date']; ?>">
+                            </div>
                         </div><!-- /.box-body -->
 
                         <div class="box-footer">

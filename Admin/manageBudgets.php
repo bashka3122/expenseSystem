@@ -39,9 +39,10 @@ if (!$_SESSION['userID']) {
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Code</th>
 
+                                            <th>Code</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     <tbody>
@@ -50,7 +51,7 @@ if (!$_SESSION['userID']) {
                                         <?php
 
                                         include 'includes/connect.php';
-                                        $sql = "SELECT * FROM accounts";
+                                        $sql = "SELECT * FROM budgets";
                                         $r = mysqli_query($conn, $sql);
 
                                         while ($row = mysqli_fetch_assoc($r)) {
@@ -59,9 +60,10 @@ if (!$_SESSION['userID']) {
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['code']; ?></td>
 
+                                                <td><?php echo $row['code']; ?></td>
+                                                <td><?php echo $row['amount']; ?></td>
+                                                <td><?php echo $row['date']; ?></td>
 
                                                 <td>
                                                     <?php
@@ -72,12 +74,12 @@ if (!$_SESSION['userID']) {
                                                     <?php  } else {
 
                                                     ?>
-                                                        <a href="editAccounts.php?Aid=<?php echo $row['id']; ?>">
+                                                        <a href="editBudgets.php?Bid=<?php echo $row['id']; ?>">
 
                                                             <button class="btn btn-info fa fa-edit"></button>
 
                                                         </a>
-                                                        <a href="backend/accounts.php?Aid=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?');">
+                                                        <a href="backend/budgets.php?Bid=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?');">
                                                             <button class="btn btn-danger fa fa-trash-o"></button>
                                                         </a>
                                                     <?php

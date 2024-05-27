@@ -32,16 +32,18 @@ if (!$_SESSION['userID']) {
 
                         <div class="box">
                             <div class="box-header">
-                                <h3 class="box-title">Accounts List</h3>
+                                <h3 class="box-title">Expenses List</h3>
                             </div><!-- /.box-header -->
                             <div class="box-body table-responsive">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Code</th>
-
+                                            <th>File</th>
+                                            <th>Payee</th>
+                                            <th>Account</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     <tbody>
@@ -50,7 +52,7 @@ if (!$_SESSION['userID']) {
                                         <?php
 
                                         include 'includes/connect.php';
-                                        $sql = "SELECT * FROM accounts";
+                                        $sql = "SELECT * FROM expenses";
                                         $r = mysqli_query($conn, $sql);
 
                                         while ($row = mysqli_fetch_assoc($r)) {
@@ -59,9 +61,15 @@ if (!$_SESSION['userID']) {
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['code']; ?></td>
-
+                                                <td>
+                                                    <a href="uploads/<?php echo $row['file']; ?>">
+                                                        <i class="fa fa-download"></i>
+                                                    </a>
+                                                </td>
+                                                <td><?php echo $row['payee']; ?></td>
+                                                <td><?php echo $row['account']; ?></td>
+                                                <td><?php echo $row['amount']; ?></td>
+                                                <td><?php echo $row['date']; ?></td>
 
                                                 <td>
                                                     <?php
@@ -72,12 +80,12 @@ if (!$_SESSION['userID']) {
                                                     <?php  } else {
 
                                                     ?>
-                                                        <a href="editAccounts.php?Aid=<?php echo $row['id']; ?>">
+                                                        <a href="editBudgets.php?Bid=<?php echo $row['id']; ?>">
 
                                                             <button class="btn btn-info fa fa-edit"></button>
 
                                                         </a>
-                                                        <a href="backend/accounts.php?Aid=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?');">
+                                                        <a href="backend/expenses.php?Eid=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?');">
                                                             <button class="btn btn-danger fa fa-trash-o"></button>
                                                         </a>
                                                     <?php

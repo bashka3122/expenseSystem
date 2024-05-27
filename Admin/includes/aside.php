@@ -38,8 +38,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i> Add new </a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> View</a></li>
+                    <li><a href="newExpense.php"><i class="fa fa-angle-double-right"></i> Add new </a></li>
+                    <li><a href="manageExpense.php"><i class="fa fa-angle-double-right"></i> View</a></li>
 
                 </ul>
             </li>
@@ -49,8 +49,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/forms/general.html"><i class="fa fa-angle-double-right"></i> New Budget</a></li>
-                    <li><a href="pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Budget Management</a></li>
+                    <li><a href="newBudget.php"><i class="fa fa-angle-double-right"></i> New Budget</a></li>
+                    <li><a href="manageBudgets.php"><i class="fa fa-angle-double-right"></i> Budget Management</a></li>
 
                 </ul>
             </li>
