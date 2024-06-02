@@ -15,7 +15,9 @@ if (!$_SESSION['userID']) {
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php';
+    include 'includes/dashboardReports.php';
+    ?>
     <div class="wrapper row-offcanvas row-offcanvas-left">
         <?php
         include 'includes/aside.php';
@@ -44,10 +46,10 @@ if (!$_SESSION['userID']) {
                         <div class="small-box bg-aqua">
                             <div class="inner">
                                 <h3>
-                                    $150
+                                    $<?php echo $exp['amount']; ?>
                                 </h3>
                                 <p>
-                                    today's Expenses
+                                    Total Expenses
                                 </p>
                             </div>
                             <div class="icon">
@@ -63,7 +65,7 @@ if (!$_SESSION['userID']) {
                         <div class="small-box bg-green">
                             <div class="inner">
                                 <h3>
-                                    $5,300
+                                    $<?php echo $Lexp['amount']; ?>
                                 </h3>
                                 <p>
                                     Last 30 day's Expenses
@@ -82,7 +84,7 @@ if (!$_SESSION['userID']) {
                         <div class="small-box bg-yellow">
                             <div class="inner">
                                 <h3>
-                                    10,000
+                                    $<?php echo $total; ?>
                                 </h3>
                                 <p>
                                     Budget limit
@@ -101,7 +103,8 @@ if (!$_SESSION['userID']) {
                         <div class="small-box bg-red">
                             <div class="inner">
                                 <h3>
-                                    $4,865
+                                    $<?php echo $budget['amount']; ?>
+
                                 </h3>
                                 <p>
                                     Remaining budget

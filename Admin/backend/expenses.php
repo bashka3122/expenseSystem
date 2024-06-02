@@ -7,16 +7,28 @@ if (isset($_POST['btnSave'])) {
     $date = $_POST['date'];
     $account = $_POST['account'];
     $file = "../uploads/" . $_FILES["file"]["name"];
-    move_uploaded_file($_FILES["file"]["tmp_name"], $file);
+
+    $b = "SELECT SUM(amount) as a FROM budgets WHERE status =0";
+    $bq = mysqli_query($conn, $b);
+    $r = mysqli_fetch_assoc($bq);
+    $am = $r['a'];
+    if ($am < $amount) {
+        echo "<script>alert('Waxaad gaartay limit-ka budget-kaaga'); location='../manageExpense.php';</script>";
+    } else {
 
 
-    $filename = $_FILES['file']['name'];
+        move_uploaded_file($_FILES["file"]["tmp_name"], $file);
 
-    $sql = "INSERT INTO expenses (amount,payee,date,account,file) VALUES('$amount','$payee','$date','$account','$filename')";
-    $q = mysqli_query($conn, $sql);
-    if ($q) {
 
-        echo "<script>alert('successfully saved'); location='../manageExpense.php';</script>";
+        $filename = $_FILES['file']['name'];
+
+        $sql = "INSERT INTO expenses (amount,payee,date,account,file) VALUES('$amount','$payee','$date','$account','$filename')";
+        $q = mysqli_query($conn, $sql);
+        if ($q) {
+            $b = "UPDATE budgets SET amount=amount-$amount WHERE status=0";
+            $query = mysqli_query($conn, $b);
+            echo "<script>alert('successfully saved'); location='../manageExpense.php';</script>";
+        }
     }
 }
 //delete
