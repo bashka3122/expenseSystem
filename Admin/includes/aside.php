@@ -75,7 +75,7 @@
                 </ul>
             </li>
             <li>
-                <a href="pages/calendar.html">
+                <a href="reports.php">
                     <i class="fa fa-calendar"></i> <span>Reports</span>
 
                 </a>
